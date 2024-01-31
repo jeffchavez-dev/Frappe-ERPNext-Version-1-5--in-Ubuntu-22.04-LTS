@@ -1,4 +1,4 @@
-# Frappe-ERPNext Version-15 in Ubuntu 22.04 LTS
+# Frappe/ERPNext Version-15 in Ubuntu 22.04 LTS Installation Guide
 A complete Guide to Install Frappe/ERPNext version 15  in Ubuntu 22.04 LTS
 
 #### Refer this for default python 3.11 setup
@@ -14,7 +14,7 @@ A complete Guide to Install Frappe/ERPNext version 15  in Ubuntu 22.04 LTS
       MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
       yarn 1.12+                                    (js dependency manager)
       pip 20+                                       (py dependency manager)
-      wkhtmltopdf (version 0.12.5 with patched qt)  (for pdf generation)
+      wkhtmltopdf (version 0.12.6 with patched qt)  (for pdf generation)
       cron                                          (bench's scheduled jobs: automated certificate renewal, scheduled backups)
       NGINX                                         (proxying multitenant sites in production)
 
@@ -183,18 +183,18 @@ Now press (Ctrl-X) to exit
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
-    bench init frappe-bench --frappe-branch version-15 --python python3.11
+    bench init frappe-bench-v15 --frappe-branch version-15
     
     cd frappe-bench/
     bench start
     
 ### STEP 14 create a site in frappe bench 
     
-    bench new-site dcode.com
+    bench new-site frappe.site.local
     
-    bench --site dcode.com add-to-hosts
+    bench use frappe.site.local
 
-Open url http://dcode.com:8000 to login 
+Open url http://frappe.site.local:8000 to login
 
 
 ### STEP 15 install ERPNext latest version in bench & site
@@ -204,7 +204,7 @@ Open url http://dcode.com:8000 to login
     ###OR
     bench get-app https://github.com/frappe/erpnext --branch version-15
 
-    bench --site dcode.com install-app erpnext
+    bench --site frappe.site.local install-app erpnext
     
     bench start
     
