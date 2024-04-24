@@ -160,6 +160,7 @@ Now press (Ctrl-X) to exit
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
     nvm install 18
+    v18.17.1
 
 ### STEP 10  install Yarn
 
