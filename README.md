@@ -157,9 +157,10 @@ Now press (Ctrl-X) to exit
 ### STEP 9 install Node.js 18.X package
 
     sudo apt install curl 
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
     source ~/.profile
-    nvm install 18.17.1
+    nvm install 18.16.1
+    nvm use 18.16.1
 
 ### STEP 10  install Yarn
 
