@@ -208,6 +208,20 @@ Open url http://frappe.site.local:8000 to login
     bench --site frappe.site.local install-app erpnext
     
     bench start
+
+
+
+### Errors
+       "Access denied for user 'root'@'localhost'")
+
+              sudo mysql -u root - // enter MariaDB monitor
+                     GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; 
+                     PRIVILEGES;
+                     FLUSH PRIVILEGES;
+                     EXIT;
+                     
+      Continue to STEP 14
+              
     
     
 
