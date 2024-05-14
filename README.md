@@ -221,6 +221,13 @@ Open url http://frappe.site.local:8000 to login
                      EXIT;
                      
       Continue to STEP 14
+
+### To delete your current Frappe/ERPNext setup and reinstall 
+      Remove Current Installation
+            sudo rm -rf ~/frappe-bench
+            sudo apt-get remove --purge mariadb-server mariadb-client
+            sudo apt-get autoremove
+            sudo apt-get autoclean
               
     
     
