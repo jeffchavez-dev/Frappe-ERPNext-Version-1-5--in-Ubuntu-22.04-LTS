@@ -168,12 +168,9 @@ Now press (Ctrl-X) to exit
 
     sudo npm install -g yarn
 
-### STEP 11 install wkhtmltopdf with Patched QT
+### STEP 11 sudo apt-get install xvfb libfontconfig wkhtmltopdf
 
     sudo apt-get install xvfb libfontconfig wkhtmltopdf
-    wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
-    sudo apt install ./wkhtmltox_0.12.6.1-2.jammy_amd64.deb -y
-    rm wkhtmltox_0.12.6.1-2.jammy_amd64.deb
     
 
 ### STEP 12 install frappe-bench
