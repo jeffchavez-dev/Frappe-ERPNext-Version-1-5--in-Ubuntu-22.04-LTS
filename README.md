@@ -209,6 +209,14 @@ Open url http://frappe.site.local:8000 to login
     ## See error 4 below for issues.
 
 
+Additional: 
+### 15 STEP 16
+      Using power toys add new entry in Administrator: Hosts File Editor
+            Address: 127.0.0.1
+            Host: frappe.site.local (or desired name)
+            Then click the ADD button
+      Log on ERPNext using Administrator and the password used during the installation.
+
 
 ## Errors
        # Error 1: "Access denied for user 'root'@'localhost'")
@@ -302,7 +310,13 @@ Open url http://frappe.site.local:8000 to login
                               sudo supervisorctl start all
                         Verify Supervisor Services: Check the status of the services:
                               sudo supervisorctl status
-                                          
+
+      # Erro 5: Bench start error 
+            Stop the Gunicorn Processes - sudo kill -9 [14193 14202 14203 or specify processes that use port 8000]
+            Change port 
+                  nano Procfile
+                  web: bench serve --port 8001
+                  bench start
                                   
                             
                         
