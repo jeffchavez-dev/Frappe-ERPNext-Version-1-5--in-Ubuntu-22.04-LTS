@@ -206,10 +206,12 @@ Open url http://frappe.site.local:8000 to login
     
     bench start
 
+    ## See error 4 below for issues.
+
 
 
 ## Errors
-       # "Access denied for user 'root'@'localhost'")
+       # Error 1: "Access denied for user 'root'@'localhost'")
 
               sudo mysql -u root - // enter MariaDB monitor
                      GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; 
@@ -221,12 +223,12 @@ Open url http://frappe.site.local:8000 to login
 
 
 
-     #  Error during step 13
+     #  Error 2:  during step 13
             "The error message indicates that the virtual environment creation failed because ensurepip is not available, and it suggests installing the                   python3-venv package."
             
             sudo apt install python3.10-venv
 
-      # Error during step 14 -  bench new-site frappe.site.local
+      # Error 3: during step 14 -  bench new-site frappe.site.local
             Issue with the MariaDB configuration. Specifically, it mentions an unknown variables, i.e. 'pid-file=/run/mysqld/mysqld.pid', 'expire_logs_days=10'\n", etc,\. 
             # To open the main configuration file
                   sudo nano /etc/mysql/my.cnf
@@ -234,10 +236,75 @@ Open url http://frappe.site.local:8000 to login
             # Open this and comment out # all unnecessary lines
                   sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 
-      # 
-            
-          
-    
+      # Error 4: WARN: restart failed: Couldn't find supervisorctl in PATH
+            Run the following: 
+                  sudo apt-get update
+                  sudo apt-get install supervisor
 
+                  Install Supervisor:
+                        Ensure Supervisor is installed on your system if it isn't already:
+                        
+                        sudo apt-get update
+                        sudo apt-get install supervisor
+                        Verify Supervisor: Check that supervisorctl is in your PATH:
+                        
+                              which supervisorctl
+                        This should return a path like /usr/bin/supervisorctl.
+                        
+                        Configure Supervisor: Set up Supervisor to manage Frappe/ERPNext processes. Create a configuration file for your Frappe/ERPNext setup if it doesn't exist:
+                        
+                              sudo nano /etc/supervisor/conf.d/frappe-bench.conf
+                              Add the necessary configurations (adjust paths and commands as needed):
+                        
+                                    [program:frappe-bench-web]
+                                    command=/home/jeffchavezdev/frappe-bench/env/bin/gunicorn -b 0.0.0.0:8000 -w 2 frappe.app:application --preload
+                                    directory=/home/jeffchavezdev/frappe-bench/sites
+                                    user=jeffchavezdev
+                                    autostart=true
+                                    autorestart=true
+                                    stopwaitsecs=60
+                                    
+                                    [program:frappe-bench-schedule]
+                                    command=/usr/local/bin/bench schedule
+                                    directory=/home/jeffchavezdev/frappe-bench
+                                    user=jeffchavezdev
+                                    autostart=true
+                                    autorestart=true
+                                    stopwaitsecs=60
+                                    
+                                    [program:frappe-bench-worker-1]
+                                    command=/usr/local/bin/bench worker --queue default
+                                    directory=/home/jeffchavezdev/frappe-bench
+                                    user=jeffchavezdev
+                                    autostart=true
+                                    autorestart=true
+                                    stopwaitsecs=60
+                                    
+                                    [program:frappe-bench-worker-2]
+                                    command=/usr/local/bin/bench worker --queue short
+                                    directory=/home/jeffchavezdev/frappe-bench
+                                    user=jeffchavezdev
+                                    autostart=true
+                                    autorestart=true
+                                    stopwaitsecs=60
+                                    
+                                    [program:frappe-bench-worker-3]
+                                    command=/usr/local/bin/bench worker --queue long
+                                    directory=/home/jeffchavezdev/frappe-bench
+                                    user=jeffchavezdev
+                                    autostart=true
+                                    autorestart=true
+                                    stopwaitsecs=60
+                        Update and Start Supervisor: Reload Supervisor configuration and start the services:
+
+                              sudo supervisorctl reread
+                              sudo supervisorctl update
+                              sudo supervisorctl start all
+                        Verify Supervisor Services: Check the status of the services:
+                              sudo supervisorctl status
+                                          
+                                  
+                            
+                        
 
     
