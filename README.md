@@ -226,12 +226,16 @@ Open url http://frappe.site.local:8000 to login
             
             sudo apt install python3.10-venv
 
-      # Issue with the MariaDB configuration. Specifically, it mentions an unknown variable 'pid-file=/run/mysqld/mysqld.pid'.
+      # Error during step 14 -  bench new-site frappe.site.local
+            Issue with the MariaDB configuration. Specifically, it mentions an unknown variables, i.e. 'pid-file=/run/mysqld/mysqld.pid', 'expire_logs_days=10'\n", etc,\. 
             # To open the main configuration file
                   sudo nano /etc/mysql/my.cnf
       
-            # To open the specific MariaDB configuration directory
+            # Open this and comment out # all unnecessary lines
                   sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+
+      # 
+            
           
     
 
