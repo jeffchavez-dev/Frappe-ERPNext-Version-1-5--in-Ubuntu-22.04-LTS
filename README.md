@@ -181,7 +181,7 @@ Now press (Ctrl-X) to exit
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
-    bench init frappe-bench-v15 --frappe-branch version-15
+    bench init frappe-bench --frappe-branch version-15 --python python3.11
     
     cd frappe-bench/
     bench start
