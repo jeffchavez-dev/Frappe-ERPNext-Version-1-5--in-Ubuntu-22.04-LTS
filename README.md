@@ -221,7 +221,13 @@ Open url http://frappe.site.local:8000 to login
                      EXIT;
                      
       Continue to STEP 14
-              
+
+
+
+      Error during step 13
+            "The error message indicates that the virtual environment creation failed because ensurepip is not available, and it suggests installing the                   python3-venv package."
+            
+            sudo apt install python3.10-venv
     
     
 
