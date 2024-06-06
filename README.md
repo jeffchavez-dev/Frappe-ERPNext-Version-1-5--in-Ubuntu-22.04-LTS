@@ -221,7 +221,7 @@ Additional:
 ## Errors
        # Error 1: "Access denied for user 'root'@'localhost'")
 
-              sudo mysql -u root - // enter MariaDB monitor
+              sudo mysql -u root // enter MariaDB monitor
                      GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; 
                      PRIVILEGES;
                      FLUSH PRIVILEGES;
