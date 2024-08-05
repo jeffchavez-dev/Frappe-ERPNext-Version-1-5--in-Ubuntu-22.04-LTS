@@ -311,14 +311,17 @@ Additional:
                         Verify Supervisor Services: Check the status of the services:
                               sudo supervisorctl status
 
-      # Erro 5: Bench start error 
+      # Error 5: Bench start error 
             Stop the Gunicorn Processes - sudo kill -9 [14193 14202 14203 or specify processes that use port 8000]
             Change port 
                   nano Procfile
                   web: bench serve --port 8001
                   bench start
                                   
-                            
+      # When updating the local instance's data 
+            Download the database from the portal
+            bench --site aos.erp.local restore manual-backups/database.sql
+            bench --site aos.erp.local migrate
                         
 
     
