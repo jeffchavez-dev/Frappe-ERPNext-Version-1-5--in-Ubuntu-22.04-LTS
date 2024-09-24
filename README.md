@@ -322,6 +322,9 @@ Additional:
             Download the database from the portal
             bench --site aos.erp.local restore manual-backups/database.sql
             bench --site aos.erp.local migrate
+
+      # Set Admin Password
+            bench --site site-name set-admin-password sample_password
                         
 
     
