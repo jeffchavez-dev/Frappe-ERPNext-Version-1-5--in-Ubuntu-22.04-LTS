@@ -179,7 +179,8 @@ Now press (Ctrl-X) to exit
     
     bench --version
 
-NOTE: Steps 1-12 can be done in the root. But 13 and below must be done through a user.
+### NOTE: 
+      Steps 1-12 can be done in the root. But 13 and below must be done through a user.
       create user: adduser [username]
       su [username] to switch to the user
       sudo visudo in root to add the new user
