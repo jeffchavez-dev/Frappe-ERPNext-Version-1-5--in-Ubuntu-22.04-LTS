@@ -178,6 +178,13 @@ Now press (Ctrl-X) to exit
     sudo -H pip3 install frappe-bench
     
     bench --version
+
+NOTE: Steps 1-12 can be done in the root. But 13 and below must be done through a user.
+      create user: adduser [username]
+      su [username] to switch to the user
+      sudo visudo in root to add the new user
+      from user command, cd ~ and continue.
+      
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
