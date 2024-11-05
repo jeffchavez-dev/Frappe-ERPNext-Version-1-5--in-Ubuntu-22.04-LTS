@@ -193,6 +193,8 @@ Now press (Ctrl-X) to exit
     
     cd frappe-bench/
     bench start
+
+    *uninstall if there are issues: rm -rf frappe-bench
     
 ### STEP 14 create a site in frappe bench 
     
