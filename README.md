@@ -202,6 +202,8 @@ Now press (Ctrl-X) to exit
     
     bench use frappe.site.local
 
+    * If issues persist, drop the site "bench drop-site frappe.site.local --force", create new and bench update before proceeding to STEP 15.
+
 Open url http://frappe.site.local:8000 to login
 
 
