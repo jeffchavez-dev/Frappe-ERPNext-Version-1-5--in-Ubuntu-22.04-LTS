@@ -320,7 +320,7 @@ Additional:
                               sudo supervisorctl start all
                         Verify Supervisor Services: Check the status of the services:
                               sudo supervisorctl status
-
+      
       # Error 5: Bench start error 
             Stop the Gunicorn Processes - sudo kill -9 [14193 14202 14203 or specify processes that use port 8000]
             Change port 
@@ -335,6 +335,10 @@ Additional:
 
       # Set Admin Password
             bench --site site-name set-admin-password sample_password
+
+
+      # NO SUCH GROUP ERROR:
+            https://discuss.frappe.io/t/very-common-error/114076/16
                         
 
     
